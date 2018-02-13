@@ -59,6 +59,31 @@
 
 <script>
 
+
+  const playSound = function playKeySounds(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    console.log(key);
+    if (!audio) return; // return function if pressed a key that is not included
+
+    key.classList.add('playing');
+    audio.currentTime = 0;
+    audio.play();
+  }
+
+  const removeTransition = function removeTranstionsFromKeys(e) {
+    // skip removing if its not a transform, only want to remove once the transform transition is done
+    if (e.propertyName !== 'transform') return;
+    this.classList.remove('playing');
+  }
+  // on keydown add class to key
+  window.addEventListener('keydown', playSound);
+
+  // when transition is over remove class from key
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+
 </script>
 
 
