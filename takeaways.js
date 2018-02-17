@@ -17,3 +17,38 @@ transform - origin: 100%;
 // get current time and seconds
 const date = new Date();
 const seconds = date.getSeconds();
+
+// css variables: declare on some element or root
+:root { // this is document
+  --base: #ffc600;
+  --spacing: 10px;
+  --blur: 10px;
+}
+// then to use them
+
+img {
+  padding: var(--spacing);
+}
+
+// How to use custom attributes
+  // Simply need to add 'data-<something>' in your html and you have custom attribute.
+  // to get the attributes and values you do <element>.dataset which gives you an object that will contain all the data objects for that specific element
+  const suffix = this.dataset.sizing; // gets the sizing value for the data-sizing attribute 
+
+// return the root element of the document <html>
+Document.documentElement
+
+// set a new value for a property on a css style object 
+//style.setProperty(<propertyName>, <value>);
+// OR
+ele.style.propertyName = value;
+
+// To transorm something on and of the screen you can toggle class names, when they have a class you do one thing, when they don't a base line. 
+.panel > *:first-child {
+} selects all the first children of nodes with the class panel.
+  
+// to move something up
+transform: translateY(x%);
+
+// change the flex number when certain class is there to update how much space it takes up
+// Can have multple transition definitions for when different properties change
