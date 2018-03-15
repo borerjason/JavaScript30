@@ -98,7 +98,42 @@
     </div>
   </div>
 
-<script>
-</script>
+  <script>
+    
+    const checkboxes = document.querySelectorAll('input');
+    let shiftActivated = false;
+    let lastClicked = null;
+
+    document.addEventListener('keydown', (e) => {
+      if (e.keyCode === 16) {
+        shiftActivated = true;
+      }
+    });
+    
+    document.addEventListener('keyup', (e) => {
+      if (e.keyCode === 16) {
+        shiftActivated = false;
+      }
+    });
+
+    function handleCheck(e) {
+      let inBetween = false;
+
+      if (shiftActivated && this.checked) {
+        checkboxes.forEach((box) => {
+          if (box === this || box === lastClicked) {
+            inBetween = !inBetween;
+          }
+          else if (inBetween) {
+            box.checked = true;
+          }
+        });
+      }
+       lastClicked = this; 
+    }
+    
+    checkboxes.forEach(box => box.addEventListener('click', handleCheck)); 
+
+  </script>
 </body>
 </html>
