@@ -52,3 +52,14 @@ transform: translateY(x%);
 
 // change the flex number when certain class is there to update how much space it takes up
 // Can have multple transition definitions for when different properties change
+
+/*
+11. Always think about what properties, methods, and events exist for different elements. Video has tons of useful information righ on it that you can utilize
+
+Input type = range for slide bar
+
+Use flags (variable set to true or false) to only fire event if mouse is up or down
+
+Access data attributes in the data set property
+
+*/
