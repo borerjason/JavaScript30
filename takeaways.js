@@ -62,4 +62,6 @@ Use flags (variable set to true or false) to only fire event if mouse is up or d
 
 Access data attributes in the data set property
 
+Use flex-basis to control width of bar
+
 */
